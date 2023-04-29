@@ -1,0 +1,45 @@
+/* style pour centrer le formulaire */
+.container {
+  
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* style pour la carte */
+.card {
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* style pour l'en-tête de la carte */
+.card-header {
+  background-color: #111112;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+/* style pour le corps de la carte */
+.card-body {
+  padding: 20px;
+}
+
+/* style pour les étiquettes de formulaire */
+label {
+  font-weight: bold;
+}
+
+/* style pour les zones de saisie de formulaire */
+input {
+  margin-bottom: 10px;
+}
+
+/* style pour les messages d'erreur */
+.invalid-feedback {
+  color: red;
+}

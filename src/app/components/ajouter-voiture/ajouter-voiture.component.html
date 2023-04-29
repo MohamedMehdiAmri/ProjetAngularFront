@@ -1,0 +1,91 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">CarStore</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="home">Accueil<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="voiture">Liste des voitures</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ajouter-voiture">Ajouter voiture</a>
+      </li>
+    </ul>
+    </div>
+    <li class="nav-item">
+      <button type="button" class="btn btn-outline-info"(click)="logout()">Logout</button>
+    </li>
+    </nav>
+    <div class="back">
+  <form #f="ngForm" (ngSubmit)="AjouterVoiture(f)">
+    <div class="container">
+      <h1 style="color: rgb(8, 8, 17); font-family: Segoe print, Arial, Helvetica, sans-serif">Ajouter voiture</h1>
+      <hr>
+      <label for="name"><b>Nom voiture</b></label>
+      <input type="text" placeholder="Entrer name voiture" name="name" id="name" ngModel required #name="ngModel">
+      <span style="color: red" *ngIf="!name.valid && name.touched"> Entrez le nom </span><br><br>
+      <label for="author"><b>Proprietaire</b></label>
+      <input type="text" placeholder="Entrer name author" name="author" id="author" ngModel required #author="ngModel">
+      <span style="color: red" *ngIf="!author.valid && author.touched"> Entrez le nom </span><br><br>
+      <label for="price"><b>Prix</b></label>
+      <input type="number" placeholder="Entrer le price" name="price" id="price" ngModel required #price="ngModel">
+      <span style="color: red" *ngIf="!price.valid && price.touched "> Entrez le prix</span><br>
+      <label for="puissance"><b>Puissance fiscale</b></label>
+      <input type="number" placeholder="Entrer puissance" name="puissance" id="puissance" ngModel required #puissance="ngModel">
+      <span style="color: red" *ngIf="!puissance.valid && puissance.touched "> Entrez la puissance</span><br><br>
+      <label for="kilometrage"><b>Kilometrage</b></label>
+      <input type="number" placeholder="Entrer le kilometrage" name="kilometrage" id="kilometrage" ngModel required #kilometrage="ngModel">
+      <span style="color: red" *ngIf="!kilometrage.valid && kilometrage.touched "> Entrez le kilometrage</span><br>
+      <label for="quantity"><b>Quantite</b></label>
+      <input type="number" placeholder="Entrer le quantity" name="quantity" id="quantity" ngModel required #quantity="ngModel">
+      <span style="color: red" *ngIf="!quantity.valid && quantity.touched "> Entrez le quantite</span><br>
+      <label for="year"><b>Année</b></label>
+      <input type="number" placeholder="Entrer year" name="year" id="year" ngModel required #year="ngModel">
+      <span style="color: red" *ngIf="!year.valid && year.touched "> Entrez l'année</span><br>
+      <label for="phone_number"><b>Numero telephone</b></label>
+      <input type="number" placeholder="Entrer Numéro" name="phone_number" id="phone_number" ngModel required #phone_number="ngModel">
+      <span style="color: red" *ngIf="!phone_number.valid && phone_number.touched "> Entrez le Numero</span><br>
+      
+      <input type="hidden" ngModel="{{fileName}}" name="image">
+      <label for="brand"><b>Marque de véhicule</b></label>
+        <select class="form-select form-select-lg mb-3" name="brand" id="brand" ngModel required #brand="ngModel">
+          <option selected>Open this select menu</option>
+          <option *ngFor="let m of marques" [ngValue]="m">{{m.name}}</option>
+        </select>
+        <br>
+        <label for="category"><b>Modele Vehicule</b></label>
+        <select class="form-select form-select-lg mb-3" name="category" id="category" ngModel required #category="ngModel">
+          <option selected>Open this select menu</option>
+          
+            <option value="Berline">Berline</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Citadine">Citadine</option>
+            <option value="SUV">SUV</option>
+            <option value="Coupe">Coupé</option>
+            <option value="CrossOver">CrossOver</option>
+        </select>
+        <hr>
+        <div class="form-group">
+
+          <label for="quantity">Image</label>
+          <div>
+              <input type="file" (change)="selectImage($event)" ngModel name="files" class="form-control" />
+          </div>
+      </div>
+        <button type="submit" class="registerbtn" [disabled]="!f.valid" >Ajouter</button>
+      </div>
+    
+      
+    </form>
+  
+  </div>
+  
+  
+  

@@ -1,0 +1,63 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">CarStore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="home">Accueil<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="voiture">Liste des voitures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ajouter-voiture">Ajouter voiture</a>
+        </li>
+          
+        
+      </ul>
+      </div>
+      </nav>
+<div class="main-body">
+    <div class="container">
+
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-sm-6 col-xl-3 mt-3">
+              <div class="card border border-success">
+                <div class="card-header border-bottom flex-column align-items-start p-3">
+                    <img  src="http://localhost:8081/carService/getImage/{{voiture.image}}" class="card-img-top icon-size" alt="...">
+                    <h4 class="text-success font-weight-light mb-2">{{voiture.name}}</h4>
+                  <p class="font-size-sm mb-0">{{voiture.brand.name}}</p>
+                </div>
+                <div class="card-header border-bottom justify-content-center py-4">
+                  <h2 class="pricing-price">
+                    <small class="align-self-start">$</small>
+                    {{voiture.price}}
+                  </h2>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled font-size-sm mb-0">
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>kilometrage : </strong><span class="text-secondary ml-1"> {{voiture.kilometrage}} </span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Année : </strong><span class="text-secondary ml-1">{{voiture.year}}</span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Proprietaire : </strong><span class="text-secondary ml-1">{{voiture.author}}</span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Type : </strong><span class="text-secondary ml-1">{{voiture.category}}</span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Puissance : </strong><span class="text-secondary ml-1">{{voiture.puissance}}</span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Numero Téléphone : </strong><span class="text-secondary ml-1">{{voiture.phone_number}}</span></li>
+                    <li><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="5" y1="12" x2="19" y2="12"></line></svg><strong>Quantite : </strong><span class="text-secondary ml-1">{{voiture.quantity}}</span></li>
+                   
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-dark"(click)="retour()">back</button>
+              </div>
+            </div>
+
+          </div>
+    
+        </div>
+    </div>
+    

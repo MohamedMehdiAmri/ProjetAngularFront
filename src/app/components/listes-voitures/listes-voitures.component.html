@@ -1,0 +1,75 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">CarStore</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="home">Accueil<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="voiture">Liste des voitures</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ajouter-voiture">Ajouter voiture</a>
+      </li>
+
+    
+    </ul>
+    </div>
+      <button type="button" class="btn btn-outline-info"(click)="logout()" style="margin: left 10px;">Logout</button>
+   
+    </nav>
+<div><input [(ngModel)]="v" placeholder="Search..." style="float: right;"/></div>
+
+<div style="display: flex;">
+<div style="display: flex;margin-top: 50px;justify-content: space-between;">
+  <div class="w3-sidebar w3-bar-block" style="width:25%; display: flex; flex-direction: column;">
+    <div style="display: flex;justify-content: center;"><a routerLink="/ajouter-marque"><img src="../../../assets/images/plus.png"></a></div>
+    <app-marque-voiture> </app-marque-voiture>
+  </div>
+  
+  <div class="container col-md-12">  
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3" *ngFor="let p of voituresF | paginate:{itemsPerPage: 4, currentPage: page}" style="margin-bottom: 20px;">
+          <div class="card" style="width: 18rem;"><div style="display: flex;justify-content: center;">     
+             <img  src="http://localhost:8081/carService/getImage/{{p.image}}" class="card-img-top icon-size" alt="..."></div>
+      
+            <div class="card-body">
+              <h5 class="card-title">{{p.name}}</h5>
+              <p class="card-text">{{p.price}}$</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Ref : {{p.id}}</li>
+              <li class="list-group-item">Nom : {{p.name}}</li>
+              <li class="list-group-item">Proprietaire : {{p.author}}</li>
+              <li class="list-group-item">Type : {{p.category}}</li>
+              <li class="list-group-item">Kilométrage : {{p.kilometrage}}</li>
+              <li class="list-group-item">Puissance : {{p.puissance}}</li>
+              <li class="list-group-item">Année : {{p.year}}</li>
+              <li class="list-group-item">Quantité : {{p.quantity}}</li>
+              <li class="list-group-item">Numéro telephone : {{p.phone_number}}</li>
+              <li class="list-group-item">Marque : {{p.brand.name}}</li>
+              <h6 [ngStyle]="{color:'green'}" *ngIf="p.quantity > 0; else horstock">- en stock</h6>
+              <ng-template #horstock><h6 [ngStyle]="{color:'red'}">- rupture de stock</h6></ng-template>
+              <a routerLink="/detail/{{p.id}}" class="btn btn-info">Details
+                <span class="fa fa-info-circle"></span>
+              </a>
+              <button type="button" class="btn btn-danger" (click)="deleteData(p.id)">Delete <span class="fa fa-trash"  style="margin-left: 10px;"></span></button>
+              <button type="button" class="btn btn-warning" [routerLink]="['/update-voiture', p.id]">Modifier<span class="fa fa-edit" style="margin-left: 10px;"></span></button>
+            </ul>
+          
+          </div>
+        </div>
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+      </div>
+    </div> 
+  </div>
+  
+
+</div>
+</div>  

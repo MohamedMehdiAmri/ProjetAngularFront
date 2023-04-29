@@ -1,0 +1,8 @@
+
+<ul class="nav-news-feed" >
+    <li> -Marques </li>
+   
+    <li *ngFor="let b of brand"  ><div> <a routerLink="/voiture/{{b.name}}" >{{b.name}} <button (click)="onDelete(b.id)" class="fa fa-trash"  style="margin-left: 5px;"></button></a></div></li>
+    <li ><div><a routerLink="/voiture">all</a></div></li>
+   
+  </ul>
